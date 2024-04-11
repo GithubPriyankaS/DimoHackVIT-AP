@@ -11,12 +11,13 @@ contract TransactionAnalyzer {
     mapping(address => uint) private userRewards;
     event TransactionAdded(address indexed user, uint indexed month, uint indexed amount, string category);
     event RewardsClaimed(address indexed user, uint rewards);
-    function addTransaction(uint _amount, string memory _category) public {
-        uint currentMonth = getCurrentMonth();
+
+    function addTransaction(uint _month, uint _amount, string memory _category) public {
         Transaction memory newTransaction = Transaction(_amount, _category, block.timestamp);
-        transactionsByMonth[currentMonth].push(newTransaction);
-        emit TransactionAdded(msg.sender, currentMonth, _amount, _category);
+        transactionsByMonth[_month].push(newTransaction);
+    emit TransactionAdded(msg.sender, _month, _amount, _category);
     }
+
     function calculateRewards() public {
         uint currentMonth = getCurrentMonth();
         uint totalSavedAmount = 0;
