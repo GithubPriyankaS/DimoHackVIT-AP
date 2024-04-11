@@ -1,2 +1,2 @@
 # DimoHackVIT-AP
-A project that I have done only the blockchain part of DimoHackVIT-AP 2024 Hackathon 
+A project in which I have done only the blockchain part so far for DimoHackVIT-AP 2024 Hackathon 
